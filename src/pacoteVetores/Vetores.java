@@ -350,3 +350,238 @@ class tamnhoEstrutura{
         }
     }
 }
+
+//-------------------------------------------------MATRIZES IMPRIMINDO NUMEROS IMPARES
+
+class matrizes{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double valores[][];
+        valores = new double[2][3]; // tem duas linhas e 3 colunas
+
+        for (int i = 0; i < valores.length; i++) {  // enquanto a linha atual for menor que a quantidade de linhas ele incrementa 1;
+
+            for (int j = 0; j < valores[i].length; j++) { // aqui ele pega atual e preenche cada coluna da linha atual
+
+                System.out.printf("Digite o valor para a posicao (%d, %d): ", i, j);
+                valores[i][j] = scanner.nextDouble();
+
+            }
+        }
+
+            for (int w = 0; w < valores.length; w++) {  // loop das linhas
+
+                for (int k = 0; k < valores[w].length; k++) {  // loop das colunas pegando a linha atual por meio de [w]
+
+
+                    if((valores[w][k] %2) != 0){
+                        System.out.println("impar " +valores[w][k]);
+                    }
+                }
+            }
+
+
+        }
+
+    }
+
+
+class MenorValozMatriz{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int valores[][];
+
+
+        valores = new int[2][5]; // tem duas linhas e 3 colunas
+
+        for (int i = 0; i < valores.length; i++) {  // enquanto a linha atual for menor que a quantidade de linhas ele incrementa 1;
+
+            for (int j = 0; j < valores[i].length; j++) { // aqui ele pega atual e preenche cada coluna da linha atual
+
+                System.out.printf("Digite o valor para a posicao (%d, %d): ", i, j);
+                valores[i][j] = (int) scanner.nextDouble();
+
+            }
+        }
+        int auxiliar = Integer.MAX_VALUE; // pegando o maior possoivel em java e armazenando aqui;
+        for (int w = 0; w < valores.length; w++) {  // loop das linhas
+
+            for (int k = 0; k < valores[w].length; k++) {  // loop das colunas pegando a linha atual por meio de [w]
+
+
+
+                if (valores[w][k] < auxiliar)
+                    auxiliar = valores[w][k];
+                }
+            }
+        System.out.println("o menor valor digitado foi " +auxiliar);
+        }
+
+}
+
+
+//-----------------------------------------METODOS EM JAVA---------------------------------------------
+// metodos sao importantes para retulizar partes do codigo em tarefas fequentes, como fazer a validacao de um cpf
+//imprimir determinado texto
+//ordenar uma lista etc
+class Metodos{
+
+    public static void imprimirCabecalho(){
+        System.out.println("--------IMPRIMINDO CABECALHO---------");
+        System.out.println("----======------IFMG-------=======----");
+        System.out.println("--------=====-----------=====---------\n");}
+
+    public static void impirmirTexto(String texto){
+        System.out.println(texto);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanne = new Scanner(System.in);
+
+        imprimirCabecalho();
+        impirmirTexto("\nDigitando o texto a ser imprimido\n"); // ou seja, imprimir texto tem a mesma funcao de um sout
+        imprimirCabecalho();
+
+    }
+}
+//-0--------------------------------metodos com retorno--------------------------------
+class MetodosComRetorno {
+
+    public static int somar(int a, int b) { //como o metodo retrona um tipo de dado
+        int aux = a + b;
+
+        return aux;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int resultado = somar(100, 132);
+        System.out.println(resultado);
+
+
+    }
+}
+    // metodo com retorno usando vetor
+
+class vetorew {
+    public static String transformarVetorEmTexto(int[] vetor) {
+        String texto = "";
+
+        for (int i = 0; i < vetor.length; i++) {
+            texto = texto + vetor[i] + "";
+
+        }
+        return texto;
+    }
+
+    public static void main(String[] args) {
+        int[] idades = {12, 22, 32, 44};
+
+        String text = transformarVetorEmTexto(idades);
+        System.out.println(text);
+    }
+
+    //parou no minuto `15 aula 25
+
+}
+class CacularDesconto {
+
+    // metodo para dar desconto
+    public static float calcDesconto(float vr, float desconto) {
+        return vr - (vr * (desconto / 100));  // Also fixed the discount calculation
+    }
+
+    //    METODO PARA IMPRIMIR UM MENU COM OPCOES
+    public static boolean menu() {
+        System.out.println("menu");
+        System.out.println("iniciar");
+        System.out.println("excluir");
+        System.out.println("listar");
+        return false;
+    }
+
+    //    metodo para inverter numeros digitados num vetor
+    public static void InverterVetor(int[] v) {
+
+        int limite = v.length - 1;
+        for (int i = 0; i < v.length / 2; i++) {
+
+            int auxiliar = v[i];
+            v[i] = v[limite - i];
+            v[limite - i] = auxiliar;
+        }
+    }
+
+    public static void main(String[] args) {
+
+
+        float produtoValor = 2000f;
+        float desconto = 10f;
+        System.out.println("--------------------METODO DESCONTO-----------------------");
+        System.out.println(calcDesconto(produtoValor, desconto));
+        System.out.println("-------------------METODO MENU--------------------------");
+        System.out.println(menu());
+    }
+}
+class PassgemDeParametros {
+
+            //crie uma funcao que receba o valor de um porudto e a porcentagem de descont
+        public static float calcDesconto (float vr, float deconto){
+            //como o desconto sera realizado
+            return   vr - (vr * deconto/100);
+
+        }
+
+        public static void main(String[] args) {
+                // valores a serem descontados e dsesconto de 10%
+            float vr = 2000f;
+            float desconto = 10f;
+            System.out.println("-----------o valor do produto com deconto é----------------");
+            System.out.println(calcDesconto(vr, desconto));
+
+            System.out.println("-----------chamando menu--------------------------------");
+            menu();
+
+            System.out.println("-------------vetor de numeros-------------------------");
+            int [] numeros = {33,332,212};
+            inverterVetro(numeros);
+        }
+
+    public static void menu(){
+        System.out.println("menu");
+        System.out.println("incluir produto");
+        System.out.println("excluir produto");
+        System.out.println("listar produto");
+        System.out.println("sair do programa");
+    }
+    public static void inverterVetro(int[] v){
+            int limite = v.length-1;
+        for (int i = 0; i < v.length/2; i++) {
+            int aux = v[i];
+            v[i] = v[limite-i];
+            v[limite-i] = aux;
+
+        }
+
+    }
+
+}
+
+class NovaClass{
+    public static void main(String[] args) {
+
+        System.out.println("put a number");
+
+    }
+}
+
+class NovaCl2ass{
+    public static void main(String[] args) {
+
+        System.out.println("put a number");
+
+    }
+}
+
